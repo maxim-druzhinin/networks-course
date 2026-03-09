@@ -62,7 +62,25 @@
 запросы и ответы со стороны сервиса для **всех** его операций.
 
 #### Демонстрация работы
-todo
+##### POST
+<img width="1348" height="868" alt="Screenshot 2026-03-09 at 23 45 29" src="https://github.com/user-attachments/assets/ceecc8b7-2c24-49bb-92ff-be656e7a4e0a" />
+
+##### GET
+<img width="1392" height="912" alt="Screenshot 2026-03-09 at 23 46 17" src="https://github.com/user-attachments/assets/b41a9655-cff7-4e9a-a5ab-b1aaf0a4a536" />
+
+##### PUT
+<img width="1392" height="912" alt="Screenshot 2026-03-09 at 23 46 56" src="https://github.com/user-attachments/assets/58df060c-8ae1-4df1-9745-c70e434cd2fb" />
+
+##### GET /products (перед этим ещё добавили один ноутбук в наш маркетплейс)
+<img width="1392" height="912" alt="Screenshot 2026-03-09 at 23 48 26" src="https://github.com/user-attachments/assets/24fdcc20-2d82-4e1d-a546-1c18513dc75c" />
+
+##### DELETE
+<img width="1392" height="912" alt="Screenshot 2026-03-09 at 23 48 50" src="https://github.com/user-attachments/assets/0aadec0e-adbf-491b-8dfd-c278358534c9" />
+<img width="1392" height="912" alt="Screenshot 2026-03-09 at 23 48 58" src="https://github.com/user-attachments/assets/80ee705b-4816-467a-b91f-84bf1bd32605" />
+
+##### И запрос не существующего товара
+<img width="1392" height="912" alt="Screenshot 2026-03-09 at 23 49 15" src="https://github.com/user-attachments/assets/a65c7511-5f19-47e4-9673-5fc306d9bca4" />
+
 
 ### Задание В (4 балла)
 Пусть ваш продукт также имеет иконку (небольшую картинку). Формат иконки (картинки) может
@@ -84,7 +102,14 @@ todo
 ```
 
 #### Демонстрация работы
-todo
+##### POST
+<img width="1392" height="912" alt="Screenshot 2026-03-10 at 00 05 55" src="https://github.com/user-attachments/assets/0e2c5fb1-9ed0-4902-9808-a91e62c1951d" />
+
+##### POST image
+<img width="1392" height="912" alt="Screenshot 2026-03-10 at 00 09 16" src="https://github.com/user-attachments/assets/64384084-41fe-408d-8ed5-3aab677db2b1" />
+
+##### GET image
+<img width="1392" height="912" alt="Screenshot 2026-03-10 at 00 10 48" src="https://github.com/user-attachments/assets/d8af980f-bfe2-40c6-a0be-08a1b9521f68" />
 
 ---
 
