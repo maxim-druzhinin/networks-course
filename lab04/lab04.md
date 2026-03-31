@@ -32,7 +32,28 @@ _(*) Вы должны заменить стоящий здесь 8888 на но
 Приложите скрины или логи работы сервера.
 
 #### Демонстрация работы
-todo
+Логи при запросе к ральной странице и к ошибочной:
+```
+2026-03-31 13:29:59,702 INFO URL: http://spbu.ru, Response Code: 200
+2026-03-31 13:29:59,738 ERROR Error while requesting http://themes/spbgu/markup/dist/manifest.json: HTTPConnectionPool(host='themes', port=80): Max retries exceeded with url: /spbgu/markup/dist/manifest.json (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x103eee750>: Failed to resolve 'themes' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,744 ERROR Error while requesting http://sites/default/files/css/css_9m8-tA3IQf8ThlLQYTTZUyEweCvyR908Tg0XCbKYOfY.css: HTTPConnectionPool(host='sites', port=80): Max retries exceeded with url: /default/files/css/css_9m8-tA3IQf8ThlLQYTTZUyEweCvyR908Tg0XCbKYOfY.css (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x103efad10>: Failed to resolve 'sites' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,749 ERROR Error while requesting http://sites/default/files/css/css_WQ8gUsMawX4g-eNk2UuZlgR8odx0fG0fVctdPO75y5g.css: HTTPConnectionPool(host='sites', port=80): Max retries exceeded with url: /default/files/css/css_WQ8gUsMawX4g-eNk2UuZlgR8odx0fG0fVctdPO75y5g.css (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x103f09fd0>: Failed to resolve 'sites' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,753 ERROR Error while requesting http://themes/spbgu/markup/dist/img/logo-big.svg: HTTPConnectionPool(host='themes', port=80): Max retries exceeded with url: /spbgu/markup/dist/img/logo-big.svg (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x1029c3d10>: Failed to resolve 'themes' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,759 ERROR Error while requesting http://themes/spbgu/markup/dist/img/logo-text-smal.svg: HTTPConnectionPool(host='themes', port=80): Max retries exceeded with url: /spbgu/markup/dist/img/logo-text-smal.svg (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x103e77f10>: Failed to resolve 'themes' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,762 ERROR Error while requesting http://themes/spbgu/sections_img/universitet.jpg: HTTPConnectionPool(host='themes', port=80): Max retries exceeded with url: /spbgu/sections_img/universitet.jpg (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x103f11a50>: Failed to resolve 'themes' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,766 ERROR Error while requesting http://themes/spbgu/sections_img/education.jpg: HTTPConnectionPool(host='themes', port=80): Max retries exceeded with url: /spbgu/sections_img/education.jpg (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x104504fd0>: Failed to resolve 'themes' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:29:59,776 ERROR Error while requesting http://themes/spbgu/sections_img/nauka.jpg: HTTPConnectionPool(host='themes', port=80): Max retries exceeded with url: /spbgu/sections_img/nauka.jpg (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x103f131d0>: Failed to resolve 'themes' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-03-31 13:30:05,791 INFO URL: http://spbu.ru/prikol, Response Code: 404
+```
+скрин в браузере, на google.com работает чуть лучше, но тоже прикольно выглядит
+<img width="1851" height="1329" alt="Screenshot 2026-03-31 at 13 31 26" src="https://github.com/user-attachments/assets/2c0c0fb2-7787-4394-80b0-91c52b962f26" />
+<img width="2551" height="1301" alt="Screenshot 2026-03-31 at 13 32 45" src="https://github.com/user-attachments/assets/67f6b061-8a3c-4b4b-aa18-926531e79eb4" />
+
+И POST:
+
+Лог: `2026-03-31 13:38:36,378 INFO URL: http://httpbin.org/post, Response Code: 200`
+<img width="1498" height="1119" alt="Screenshot 2026-03-31 at 13 39 07" src="https://github.com/user-attachments/assets/1a350508-1522-4acf-8d6f-621f909df94b" />
+
 
 ### Б. Прокси-сервер с кешированием (4 балла)
 Когда прокси-сервер получает запрос, он проверяет, есть ли запрашиваемый объект в кэше, и,
@@ -52,7 +73,13 @@ todo
 Приложите скрины или логи, из которых понятно, что ответ на повторный запрос был взят из кэша.
 
 #### Демонстрация работы
-todo
+Вроде сделал всё кроме max-age из ссылочки. Вернемся к истокам и постучимся на `http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file2.html`
+```
+2026-03-31 14:00:00,875 INFO URL: http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file2.html, Response Code: 200, Cache: MISS
+2026-03-31 14:00:03,247 INFO URL: http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file2.html, Response Code: 200, Cache: HIT
+```
+Ура!
+Так же проверил после перезапуска сервера и всё верно считалось и опять попало в кэш.
 
 ### В. Черный список (2 балла)
 Прокси-сервер отслеживает страницы и не пускает на те, которые попадают в черный список. Вместо
@@ -62,7 +89,12 @@ todo
 Приложите скрины или логи запроса из черного списка.
 
 #### Демонстрация работы
-todo
+Добавил это в прошлую реализацию, файл `proxy_b.py`
+
+Вот такой лог `2026-03-31 14:08:04,799 INFO BLOCKED URL: http://google.com` и картинка:
+<img width="1785" height="685" alt="Screenshot 2026-03-31 at 14 08 10" src="https://github.com/user-attachments/assets/dfe66514-8a03-43e5-b600-61673698f56e" />
+
+
 
 ## Wireshark. Работа с DNS
 Для каждого задания в этой секции приложите скрин с подтверждением ваших ответов.
