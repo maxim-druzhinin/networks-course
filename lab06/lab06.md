@@ -49,7 +49,15 @@
 Приложите скриншоты.
 
 #### Скрины
-todo
+Это было не тривиально, потому что у меня почему-то сервак запустился не на стандартном порте, пришлось долго искать а где же всё-таки он...
+
+<img width="1359" height="817" alt="Screenshot 2026-04-12 at 14 25 37" src="https://github.com/user-attachments/assets/bf445214-c646-4cc4-833d-62c330c0913d" />
+<img width="1312" height="1100" alt="Screenshot 2026-04-12 at 14 34 03" src="https://github.com/user-attachments/assets/22134501-662b-40a5-92ec-474fa970d26e" />
+<img width="1312" height="1100" alt="Screenshot 2026-04-12 at 14 34 30" src="https://github.com/user-attachments/assets/b11b12d6-40fe-4c6f-bd37-32e4bbef7e2f" />
+
+
+
+
 
 ### FTP клиент (3 балла)
 Создайте консольное приложение FTP клиента для работы с файлами по FTP. Приложение может
