@@ -20,43 +20,62 @@
    файл серверу gaia.cs.umass.edu? Для ответа на вопрос, возможно, проще выбрать http-сообщение
    и рассмотреть информацию TCP-пакета, используемого для передачи этого http-сообщения, 
    в окне деталей заголовка пакета.
-   - <!-- todo -->
+   - 192.168.0.8; 60312
 2. Каков IP-адрес у сервера gaia.cs.umass.edu? Каковы номера портов для отправки и приема
    TCP-сегментов этого соединения?
-   - <!-- todo -->
-   - <!-- todo -->
+   - 128.119.245.12
+   - 80
+  <img width="1633" height="1197" alt="Screenshot 2026-04-19 at 19 05 44" src="https://github.com/user-attachments/assets/ad459ade-db79-421e-9496-42e166d91a9f" />
+
 3. Какой порядковый номер у SYN TCP-сегмента, который используется для установления
    TCP-соединения между компьютером клиента и сервером gaia.cs.umass.edu? Как
    определяется, что это именно SYN-сегмент?
-   - <!-- todo -->
-   - <!-- todo -->
+   - Sequence Number: 0 (relative sequence number) и Sequence Number (raw): 1733234618
+   - флаг стоит SYN на 1
+     
+     <img width="1633" height="1197" alt="Screenshot 2026-04-19 at 19 12 43" src="https://github.com/user-attachments/assets/3d2f8650-ed49-486e-bda8-fe8865a6e5ec" />
+
 4. Какой порядковый номер у SYNACK-сегмента, отправленного сервером gaia.cs.umass.edu
    на компьютер клиента в ответ на SYN-сегмент? Какое значение хранится в поле
    подтверждения в SYNACK-сегменте? Как сервер gaia.cs.umass.edu определил это значение?
    Как определяется, что это именно SYNACK-сегмент?
-   - <!-- todo -->
-   - <!-- todo -->
-   - <!-- todo -->
-   - <!-- todo -->
+   - Sequence Number: 0 (relative sequence number) и Sequence Number (raw): 1887228238
+   - Acknowledgment Number: 1 (relative ack number) и Acknowledgment number (raw): 1733234619
+   - к sequence number из прошлого запроса прибавил 1
+   - флаги SYN и ACK выставлены
+  
+   <img width="1633" height="1197" alt="Screenshot 2026-04-19 at 19 18 56" src="https://github.com/user-attachments/assets/9489f592-7fdc-4cde-ae14-b53d039a99b3" />
+
 5. Какой порядковый номер у TCP-сегмента, содержащего команду POST протокола HTTP?
    (для нахождения команды POST вам потребуется проникнуть внутрь поля содержимого
    пакета в нижней части окна Wireshark, чтобы найти сегмент, в поле DATA которого
    хранится значение POST)
-   - <!-- todo -->
+   - Sequence Number (raw): 1733234619 и Sequence Number: 1 (relative sequence number)
+     
+  <img width="1633" height="1197" alt="Screenshot 2026-04-19 at 19 57 31" src="https://github.com/user-attachments/assets/ad33fae1-18b1-46be-b4f7-bde5e2c2e1e4" />
+   
 6. Рассмотрите TCP-сегмент, содержащий команду POST протокола HTTP, как первый TCP-сегмент 
    соединения. Какие порядковые номера у первых шести сегментов TCP-соединения 
    (включая сегмент, содержащий команду POST протокола HTTP)? Когда был
    отправлен каждый сегмент? Когда был получен ACK-пакет для каждого сегмента?
    Покажите разницу между тем, когда каждый TCP-сегмент был отправлен и когда было
    получено каждое подтверждение, чему равно значение RTT для каждого из 6 сегментов?
-   - <!-- todo -->
-   - <!-- todo -->
-   - <!-- todo -->
-   - <!-- todo -->
+   - 1, 635, 2075, 3515, 4955, 6395
+   - 10.257956, 10.258089, 10.258090, 10.258091, 10.258093, 10.258095
+   - 10.382105, 10.382235, 10.382348, 10.382348, 10.382917, 10.382917 (547 и 552 покрыли по два сегмента)
+   - 0.124149, 0.124146, 0.124258, 0.124257, 0.124824, 0.124822
 7. Чему равна пропускная способность (количество байтов, передаваемых в единицу
    времени) для этого TCP-соединения? Объясните, как вы получили это значение.
-   - <!-- todo -->
-   - <!-- todo -->
+   - посчитаем через формулу: $cap = \frac{Win}{RTT} = \frac{132480}{0.1242} \approx 1066675\ \text{байт/с}$
+  
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 00 11" src="https://github.com/user-attachments/assets/c5bc0ba2-d620-464d-a5af-a0ef5a20efd3" />
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 03 39" src="https://github.com/user-attachments/assets/ca03ed6d-3aea-43e5-a737-c442330f6595" />
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 03 43" src="https://github.com/user-attachments/assets/7a68772b-622c-4af6-a1bc-5f6a1790ca1f" />
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 03 46" src="https://github.com/user-attachments/assets/fe34612d-652f-4c53-911c-6072131ac22a" />
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 03 51" src="https://github.com/user-attachments/assets/de134fce-3efb-4c17-903d-c66b0c5e141e" />
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 03 54" src="https://github.com/user-attachments/assets/e0235e65-10bc-44d2-9fc8-2aa4a9014da1" />
+<img width="1633" height="1197" alt="Screenshot 2026-04-19 at 20 10 59" src="https://github.com/user-attachments/assets/ea5c0a3e-c9a8-4b04-a271-514a554643d3" />
+
 
 ### Работа с Time-Sequence-Graph (Stevens) (2 балла)
 Time-Sequence-Graph (Stevens) (Временная шкала (Стивенса)) – одна из графических утилит
@@ -82,7 +101,8 @@ Time-Sequence-Graph (Stevens) (Статистика => График TCP пото
 серверу gaia.cs.umass.edu. Приложите соответствующий скрин программы Wireshark.
 
 #### Скрин
-todo
+<img width="1126" height="985" alt="Screenshot 2026-04-19 at 20 29 30" src="https://github.com/user-attachments/assets/c6871fef-0a65-48c4-a781-ab5e6e979022" />
+
 
 ## Программирование. Эхо-запросы через UDP
 Реализуйте сервер для пингования, а также его клиента.
@@ -91,7 +111,6 @@ todo
 Сервер находится в бесконечном цикле, ожидая приходящие UDP-пакеты.
 Если пакет прибывает, то сервер просто изменяет символы входящего сообщения на заглавные и
 отправляет их обратно клиенту. Серверный код должен моделировать 20% потерю пакетов.
-
 ### Б. Клиентская часть (2 балла)
 Клиент должен отправить 10 эхо-запросов серверу. Поскольку UDP является ненадежным с точки
 зрения доставки протоколом, то пакет, отправленный от клиента к серверу или наоборот, может
@@ -201,4 +220,8 @@ todo
 более $98$ процентов?
 
 #### Решение
-todo
+Возьмем формулу (насколько помню, с 4 лекции): $U=\frac{nL/R}{RTT+L/R}$
+
+Посчитаем: $\frac{L}{R}=\frac{1500*8}{10^9}=1.2\cdot 10^{-5}\text{c}=0.012\text{мс}$
+
+Подставим всё что у нас есть: $\frac{n\cdot 0.012}{30+0.012}>0.98$ и тогда $n>\frac{29.41176}{0.012}\approx 2450.98$. То есть минимум $n=2451$
