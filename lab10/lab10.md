@@ -1,4 +1,4 @@
-<img width="496" height="480" alt="Screenshot 2026-05-10 at 15 49 17" src="https://github.com/user-attachments/assets/a30ae4a5-d1e2-4fa9-801a-052c5a43b5f4" /># Практика 10. Сетевой уровень
+# Практика 10. Сетевой уровень
 
 ## Wireshark: IP (8 баллов)
 Для работы вам понадобится программа traceroute. При работе программа traceroute сначала
